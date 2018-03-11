@@ -7,7 +7,6 @@ import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractProject;
-import hudson.model.Descriptor;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
@@ -18,10 +17,16 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 
 public class CalculatorBuilder extends Builder implements SimpleBuildStep {
+    private final String parameterName;
 
     @DataBoundConstructor
-    public CalculatorBuilder() {
+    public CalculatorBuilder(String parameterName) {
 
+        this.parameterName = parameterName;
+    }
+
+    public String getParameterName() {
+        return parameterName;
     }
 
     @Override
