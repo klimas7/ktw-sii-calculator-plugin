@@ -26,7 +26,13 @@ public class CalculatorBuilder extends Builder implements SimpleBuildStep {
 
     @Override
     public void perform(@Nonnull Run<?, ?> run, @Nonnull FilePath workspace, @Nonnull Launcher launcher, @Nonnull TaskListener listener) throws InterruptedException, IOException {
+        listener.getLogger().println("Numerical system is: " + getDescriptor().getNumericalSystem());
         listener.getLogger().println("Calculation results: ");
+    }
+
+    @Override
+    public DescriptorImpl getDescriptor() {
+        return (DescriptorImpl) super.getDescriptor();
     }
 
     @Extension
