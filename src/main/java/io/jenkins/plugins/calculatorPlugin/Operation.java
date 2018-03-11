@@ -3,7 +3,7 @@ package io.jenkins.plugins.calculatorPlugin;
 public enum Operation {
     ADD("+"), SUB("-"), MUL("*"), DIV("/");
 
-    private String symbol;
+    private final String symbol;
 
     Operation(String symbol) {
         this.symbol = symbol;
